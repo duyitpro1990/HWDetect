@@ -22,6 +22,6 @@ def detectHW(imagePath):
     
     # print(img_array)
     # # Load the model
-    loaded_model = tensorflow.keras.models.load_model('ai\HWRModel.hdf5')
+    loaded_model = tensorflow.keras.models.load_model('HWRModel.hdf5')
     pred = loaded_model.predict(img)
     return np.argmax(pred)
