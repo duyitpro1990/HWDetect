@@ -1,0 +1,2 @@
+# HWDetect
+App detect handwriting
