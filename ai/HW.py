@@ -1,9 +1,11 @@
 import numpy as np
 from PIL import Image
+from dotenv import load_dotenv
 import base64,io
 def detectHW(imagePath):
     import tensorflow
-    import cv2
+    import cv2,os
+    load_dotenv()
     # print(imagePath)  
     # Remove data URI prefix if present
     if ',' in imagePath:
@@ -22,6 +24,8 @@ def detectHW(imagePath):
     
     # print(img_array)
     # # Load the model
-    loaded_model = tensorflow.keras.models.load_model('HWRModel.hdf5')
+    path = str(os.getenv('PATH_MODEL'))
+    print("path_model:"+ path)
+    loaded_model = tensorflow.keras.models.load_model(path)
     pred = loaded_model.predict(img)
     return np.argmax(pred)
